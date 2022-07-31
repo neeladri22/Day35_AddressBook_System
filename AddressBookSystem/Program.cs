@@ -13,6 +13,8 @@ namespace AddressBookSystem
                 Console.WriteLine("\nEnter 1 \tAdd New Contact ");
                 Console.WriteLine("\nEnter 2 \tEdit Existing Contact");
                 Console.WriteLine("\nEnter 3 \tDelete Contact");
+                Console.WriteLine("\nEnter 4 \tRetrive person Belongs to City");
+                Console.WriteLine("\nEnter 5 \tRetrive person Belongs to State");
                 int choice = int.Parse(Console.ReadLine());
 
                 switch (choice)
@@ -25,6 +27,12 @@ namespace AddressBookSystem
                         break;
                     case 3:
                         AddressBook.deleteContact(); //Delete contact
+                        break;
+                    case 4:
+                        AddressBook.SearchPersonInCity(); //Retrive person Belongs to City
+                        break;
+                    case 5:
+                        AddressBook.SearchPersonInState(); //Retrive person Belongs to State
                         break;
                     default:
                         Console.WriteLine("Pleasee select valid input");
