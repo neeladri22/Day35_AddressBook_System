@@ -199,6 +199,18 @@ namespace AddressBookSystem
                                     "\tCity : " + contact.City);
             }
         }
+
+        //Number of Contact persons count by Addresstype
+        public static void NumberOfContactPersosCouyntByType()
+        {
+            Console.WriteLine("Number of Contact persons count by Addresstype: ");
+            var type = AddressDetails.GroupBy(x => x.AddressBookType).Select(y => new { AddressBookType = y.Key, count = y.Count() });
+            foreach (var contact in type)
+            {
+                Console.WriteLine("\nAddressBook Type :" + contact.AddressBookType +
+                                    "\n Count : " + contact.count);
+            }
+        }
     }
 
 }
