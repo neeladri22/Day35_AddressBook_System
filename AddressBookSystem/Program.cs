@@ -15,6 +15,7 @@ namespace AddressBookSystem
                 Console.WriteLine("\nEnter 3 \tDelete Contact");
                 Console.WriteLine("\nEnter 4 \tRetrive person Belongs to City");
                 Console.WriteLine("\nEnter 5 \tRetrive person Belongs to State");
+                Console.WriteLine("\nEnter 6 \tSize of AddressBook");
                 int choice = int.Parse(Console.ReadLine());
 
                 switch (choice)
@@ -34,11 +35,15 @@ namespace AddressBookSystem
                     case 5:
                         AddressBook.SearchPersonInState(); //Retrive person Belongs to State
                         break;
+                    case 6:
+                        AddressBook.SizeOfAddressBook(); //Size of AddressBook
+                        break;
                     default:
                         Console.WriteLine("Pleasee select valid input");
                         break;
                 }
             }
+
         }
     }
 }

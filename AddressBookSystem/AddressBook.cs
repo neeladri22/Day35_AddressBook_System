@@ -161,7 +161,23 @@ namespace AddressBookSystem
             }
         }
 
+        //List of People Method
+        public static void SizeOfAddressBook()
+        {
+            if (AddressDetails.Count == 0)
+            {
+                Console.WriteLine("Address Book is empty. Press any key to continue.");
+                Console.ReadKey();
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Address Book Size is : " + AddressDetails.Count);
+            }
 
+            Console.WriteLine("\nPress any key to continue.");
+            Console.ReadKey();
+        }
 
     }
 
