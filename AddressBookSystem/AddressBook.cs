@@ -8,11 +8,11 @@ namespace AddressBookSystem
 {
     public class AddressBook
     {
+
         // Creating list for Storing the Contacts of Each Persons details
         public static List<Contact> AddressDetails = new List<Contact>();
 
-        // /Creating the method for Adding new contact - Added AddressBookName and AddressBook Type
-
+        // /Creating the method for Adding new contact - Added AddressBookName and AddressBook 
         public static void AddNewContact()
         {
             Contact person = new Contact();
@@ -200,7 +200,7 @@ namespace AddressBookSystem
             }
         }
 
-        //Number of Contact persons count by Addresstype
+        //Number of Contact persons count by Addresstype 
         public static void NumberOfContactPersosCouyntByType()
         {
             Console.WriteLine("Number of Contact persons count by Addresstype: ");
@@ -211,6 +211,48 @@ namespace AddressBookSystem
                                     "\n Count : " + contact.count);
             }
         }
+        // /Creating the method for Adding new contact - Add Person to Both Family and Friend
+        public static void AddNewContact()
+        {
+            Contact person = new Contact();
+
+            Console.Write("Enter First Name: ");
+            person.FirstName = Console.ReadLine();
+
+            Console.Write("Enter Last Name: ");
+            person.LastName = Console.ReadLine();
+
+            Console.Write("Enter Address : ");
+            person.Address = Console.ReadLine();
+
+            Console.Write("Enter City: ");
+            person.City = Console.ReadLine();
+
+            Console.Write("Enter State: ");
+            person.State = Console.ReadLine();
+
+            Console.Write("Enter Zip Code: ");
+            person.ZipCode = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Mobile Number: ");
+            person.MobileNumber = long.Parse(Console.ReadLine());
+
+            Console.Write("Enter E-Mail: ");
+            person.Email = Console.ReadLine();
+
+            Console.Write("Enter AddressBook Name: ");
+            person.AddressBookName = Console.ReadLine();
+
+            Console.Write("Enter AddressBook Type: ");
+            person.AddressBookType = Console.ReadLine();
+
+            Console.WriteLine("\n************************************\n");
+            PrintContact(person);
+            Console.WriteLine("\n************************************\n");
+
+            AddressDetails.Add(person);
+        }
     }
+
 
 }
