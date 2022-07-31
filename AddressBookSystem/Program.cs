@@ -16,6 +16,7 @@ namespace AddressBookSystem
                 Console.WriteLine("\nEnter 4 \tRetrive person Belongs to City");
                 Console.WriteLine("\nEnter 5 \tRetrive person Belongs to State");
                 Console.WriteLine("\nEnter 6 \tSize of AddressBook");
+                Console.WriteLine("\nEnter 7 \tSort Person's Name Alphabetically");
                 int choice = int.Parse(Console.ReadLine());
 
                 switch (choice)
@@ -38,11 +39,15 @@ namespace AddressBookSystem
                     case 6:
                         AddressBook.SizeOfAddressBook(); //Size of AddressBook
                         break;
+                    case 7:
+                        AddressBook.SortPersonsANmeByCity(); //Sort Persons Name for given city
+                        break;
                     default:
                         Console.WriteLine("Pleasee select valid input");
                         break;
                 }
             }
+
 
         }
     }

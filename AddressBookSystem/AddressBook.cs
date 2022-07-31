@@ -179,6 +179,20 @@ namespace AddressBookSystem
             Console.ReadKey();
         }
 
+        //Sort Persons Name for given city
+        public static void SortPersonsANmeByCity()
+        {
+            Console.WriteLine("Please enter the city name: ");
+            string city = Console.ReadLine();
+            var SortPersonDetails = AddressDetails.FindAll(C => (C.City == city)).OrderBy(F => F.FirstName).ToList();
+            Console.WriteLine("All the entrier in AddressBook Sorted Alphabetically :");
+            foreach (var contact in SortPersonDetails)
+            {
+                Console.WriteLine("\nPerson Name : " + contact.FirstName +
+                                    "\tCity : " + contact.City);
+            }
+        }
+
     }
 
 }
