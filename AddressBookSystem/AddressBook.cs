@@ -252,6 +252,7 @@ namespace AddressBookSystem
 
             AddressDetails.Add(person);
         }
+        //Ensure all retrieve queries are working with new table strature
     }
 
 
