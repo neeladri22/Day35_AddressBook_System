@@ -8,14 +8,15 @@ namespace AddressBookSystem
 {
     public class AddressBook
     {
-        public static Contact person = new Contact();
-
         // Creating list for Storing the Contacts of Each Persons details
         public static List<Contact> AddressDetails = new List<Contact>();
 
-        // /Creating the method for Adding new contact
+        // /Creating the method for Adding new contact - Added AddressBookName and AddressBook Type
+
         public static void AddNewContact()
         {
+            Contact person = new Contact();
+
             Console.Write("Enter First Name: ");
             person.FirstName = Console.ReadLine();
 
@@ -40,6 +41,12 @@ namespace AddressBookSystem
             Console.Write("Enter E-Mail: ");
             person.Email = Console.ReadLine();
 
+            Console.Write("Enter AddressBook Name: ");
+            person.AddressBookName = Console.ReadLine();
+
+            Console.Write("Enter AddressBook Type: ");
+            person.AddressBookType = Console.ReadLine();
+
             Console.WriteLine("\n************************************\n");
             PrintContact(person);
             Console.WriteLine("\n************************************\n");
@@ -58,6 +65,8 @@ namespace AddressBookSystem
             Console.WriteLine("Zip Code :" + person.ZipCode);
             Console.WriteLine("Mobile Number :" + person.MobileNumber);
             Console.WriteLine("E-Mail :" + person.Email);
+            Console.WriteLine("E-Mail :" + person.AddressBookName);
+            Console.WriteLine("E-Mail :" + person.AddressBookType);
         }
         // Creating the method for editing the existing contact
         public static void EditExistingContact()
@@ -116,7 +125,6 @@ namespace AddressBookSystem
                 Console.WriteLine("\nPerson removed\n");
             }
         }
-
         //Serch the person by city name
         public static void SearchPersonInCity()
         {
@@ -161,8 +169,48 @@ namespace AddressBookSystem
             }
         }
 
+        //List of People Method
+        public static void SizeOfAddressBook()
+        {
+            if (AddressDetails.Count == 0)
+            {
+                Console.WriteLine("Address Book is empty. Press any key to continue.");
+                Console.ReadKey();
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Address Book Size is : " + AddressDetails.Count);
+            }
 
+            Console.WriteLine("\nPress any key to continue.");
+            Console.ReadKey();
+        }
+        //Sort Persons Name for given city
+        public static void SortPersonsANmeByCity()
+        {
+            Console.WriteLine("Please enter the city name: ");
+            string city = Console.ReadLine();
+            var SortPersonDetails = AddressDetails.FindAll(C => (C.City == city)).OrderBy(F => F.FirstName).ToList();
+            Console.WriteLine("All the entrier in AddressBook Sorted Alphabetically :");
+            foreach (var contact in SortPersonDetails)
+            {
+                Console.WriteLine("\nPerson Name : " + contact.FirstName +
+                                    "\tCity : " + contact.City);
+            }
+        }
 
+        //Number of Contact persons count by Addresstype
+        public static void NumberOfContactPersosCouyntByType()
+        {
+            Console.WriteLine("Number of Contact persons count by Addresstype: ");
+            var type = AddressDetails.GroupBy(x => x.AddressBookType).Select(y => new { AddressBookType = y.Key, count = y.Count() });
+            foreach (var contact in type)
+            {
+                Console.WriteLine("\nAddressBook Type :" + contact.AddressBookType +
+                                    "\n Count : " + contact.count);
+            }
+        }
     }
 
 }
